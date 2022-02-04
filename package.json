@@ -77,7 +77,14 @@
   },
   "description": "Storybook design systems tutorial",
   "main": "dist/index.js",
-  "repository": "https://github.com/YYvanYang/learnstorybook-design-system.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YYvanYang/learnstorybook-design-system.git"
+  },
   "author": "yvan yang <yvan.yang@outlook.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/YYvanYang/learnstorybook-design-system/issues"
+  },
+  "homepage": "https://github.com/YYvanYang/learnstorybook-design-system#readme"
 }
