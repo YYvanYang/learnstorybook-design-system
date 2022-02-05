@@ -1,3 +1,15 @@
+# v0.1.2 (Sat Feb 05 2022)
+
+#### 🐛 Bug Fix
+
+- Create avatar list component [#6](https://github.com/YYvanYang/learnstorybook-design-system/pull/6) ([@YYvanYang](https://github.com/YYvanYang))
+
+#### Authors: 1
+
+- [@YYvanYang](https://github.com/YYvanYang)
+
+---
+
 # v0.1.1 (Sat Feb 05 2022)
 
 #### 🐛 Bug Fix
