@@ -53,6 +53,7 @@ const Users = styled.ul`
 
 /**
  * A list of Avatars, ellipsized to at most 3. Supports passing only a subset of the total user count.
+ * This is awesome.
  */
 export function AvatarList({ loading, users, userCount, size, ...props }) {
     const count = userCount || users.length;
