@@ -4,6 +4,7 @@ import { AvatarList } from './AvatarList';
 
 export default {
   title: 'Design System/AvatarList',
+  component: AvatarList, // 这个很重要
 };
 
 const Template = (args) => <AvatarList {...args} />;
