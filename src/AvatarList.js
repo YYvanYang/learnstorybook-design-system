@@ -51,51 +51,65 @@ const Users = styled.ul`
   }
 `;
 
-// Either pass the full list of users, or a userCount if known
+/**
+ * A list of Avatars, ellipsized to at most 3. Supports passing only a subset of the total user count.
+ */
 export function AvatarList({ loading, users, userCount, size, ...props }) {
-  const count = userCount || users.length;
-  return (
-    <Users aria-label="users" {...props}>
-      {users.slice(0, 3).map(({ id, name, avatarUrl }) => (
-        <User key={id}>
-          <UserAvatar
-            size={size}
-            username={name}
-            src={avatarUrl}
-            loading={loading}
-          />
-        </User>
-      ))}
-      {count > 3 && (
-        <UserEllipses aria-label={`${count - 3} more user(s)`}>
-          {" "}
-          &#43; {count - 3}{" "}
-        </UserEllipses>
-      )}
-    </Users>
-  );
+    const count = userCount || users.length;
+    return (
+        <Users aria-label="users" {...props}>
+            {users.slice(0, 3).map(({ id, name, avatarUrl }) => (
+                <User key={id}>
+                    <UserAvatar
+                        size={size}
+                        username={name}
+                        src={avatarUrl}
+                        loading={loading}
+                    />
+                </User>
+            ))}
+            {count > 3 && (
+                <UserEllipses aria-label={`${count - 3} more user(s)`}>
+                    {" "}
+                    &#43; {count - 3}{" "}
+                </UserEllipses>
+            )}
+        </Users>
+    );
 }
 
 AvatarList.propTypes = {
-  loading: PropTypes.bool,
-  users: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      name: PropTypes.string,
-      avatarUrl: PropTypes.string,
-    })
-  ),
-  userCount: PropTypes.number,
-  size: PropTypes.oneOf(Object.keys(sizes)),
+    /**
+     * Are we loading avatar data from the network?
+     */
+    loading: PropTypes.bool,
+    /**
+    * A (sub)-list of the users whose avatars we have data for. Note: only 3 will be displayed.
+    */
+    users: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.string.isRequired,
+            name: PropTypes.string,
+            avatarUrl: PropTypes.string,
+        })
+    ),
+    /**
+   * The total number of users, if a subset is passed to `users`.
+   */
+    userCount: PropTypes.number,
+    /**
+  * AvatarList comes in four sizes. In most cases, you’ll be fine with `medium`.
+  */
+    size: PropTypes.oneOf(Object.keys(sizes)),
 };
 
 AvatarList.defaultProps = {
-  loading: false,
-  users: [
-    { id: "loading", avatarUrl: null, name: "loading" },
-    { id: "loading2", avatarUrl: null, name: "loading" },
-    { id: "loading3", avatarUrl: null, name: "loading" },
-  ],
-  userCount: null,
-  size: "medium",
+    loading: false,
+    users: [
+        { id: "loading", avatarUrl: null, name: "loading" },
+        { id: "loading2", avatarUrl: null, name: "loading" },
+        { id: "loading3", avatarUrl: null, name: "loading" },
+    ],
+    userCount: null,
+    size: "medium",
 };
